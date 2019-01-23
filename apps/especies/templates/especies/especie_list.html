@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    List
+<br>
+    {% for especie in object_list %}
+        <a href="{% url 'update_especie' especie.id %}">
+            {{ especie }}
+        </a>
+        <a href="{% url 'delete_especie' especie.id %}">
+            Deletar
+        </a>
+        <br>
+    {% endfor %}
+
+    <a href="{% url 'create_especie' %}" class="btn btn-info"> Novo </a>
+{% endblock %}
