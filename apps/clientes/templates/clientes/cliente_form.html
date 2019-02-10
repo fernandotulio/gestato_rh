@@ -1,46 +1,61 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
 
+
+
 {% block main %}
 
-<form method="POST">
-    {% csrf_token %}
-
-    {{ form|bootstrap }}
-
-    <button type="submit" class="btn btn-main">Salvar</button>
-</form>
-
 <br>
 
-<br>
-<h2>Animais</h2>
-<ul>
-{% for animal in object.animal_set.all %}
-    <li>
-        <a href="{{ animal.nome.url }} "> {{ animal.nome }}  </a><br>
-    </li>
-{% endfor %}
-</ul>
+<div class="row">
+  <div class="col-sm-8">
 
-{% if object %}
-<a href="{% url 'create_documento' object.id %}" class="btn btn-success">
-    Adicionar documento
-</a>
-{% endif %}
+   <form method="POST">
+        {% csrf_token %}
 
-<br>
-<h2>Banco de horas</h2>
-<ul>
-{% for registro_hora in object.registrohoraextra_set.all %}
-    <li>
-        <a href="{% url 'update_hora_extra' registro_hora.id %}">
-            {{ registro_hora.motivo  }} | {{ registro_hora.horas }} <br>
+        {{ form|bootstrap }}
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+
+
+    <br>
+
+    <br>
+
+
+  </div>
+
+
+
+ <div class="col-sm-4">
+
+
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        Animais
+      </div>
+      <ul class="list-group list-group-flush">
+        {% for animal in object.animal_set.all %}
+
+            <li class="list-group-item" ><a href="{% url 'update_animal' animal.id %}"> {{ animal.nome }} </a> </li>
+
+        {% endfor %}
+      </ul>
+    </div>
+
+
+    {% if object %}
+        <br>
+        <a href="{% url 'create_animal' object.id %}" class="btn btn-success">
+            Adicionar Animal
         </a>
-    </li>
-{% endfor %}
-</ul>
+    {% endif %}
 
-<h3>Total de horas extras: {{ object.total_horas_extra }} </h3>
+  </div>
+
+</div>
+
+
 
 {% endblock %}

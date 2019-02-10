@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block main %}
+<br>
+<div class="alert alert-dark" role="alert">  <a href="{% url 'update_cliente' object.pertence.id %}"> {{ object.pertence.nome }} <a/> ->  Animais </div>
+<br>
+
+
+{{ form.errors }}
+
+
+
+<form method="POST">
+    {% csrf_token %}
+
+    {{ form|bootstrap }}
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+<br>
+
+
+{% endblock %}

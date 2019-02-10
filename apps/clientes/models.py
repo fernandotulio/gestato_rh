@@ -16,7 +16,7 @@ class Cliente(models.Model):
     imagem = models.ImageField( blank=True)
 
     def get_absolute_url(self):
-        return reverse('list_clientes')
+        return reverse('update_cliente', args=[self.id])
 
     def __str__(self):
         return self.nome

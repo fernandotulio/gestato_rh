@@ -1,6 +1,8 @@
 from django.db import models
 from apps.clientes.models import Cliente
 from apps.especies.models import Especie
+from django.urls import reverse
+
 from django import forms
 
 # Create your models here.
@@ -30,3 +32,6 @@ class Animal(models.Model):
 
     def __str__(self):
         return self.nome
+
+    def get_absolute_url(self):
+        return reverse('update_cliente', args=[self.pertence.id])

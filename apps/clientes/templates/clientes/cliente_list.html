@@ -7,10 +7,13 @@
     {% for cliente in object_list %}
 
         <a href="{% url 'update_cliente' cliente.id %}">
-            {{ cliente }}
+            {{ cliente }} <br>
         </a>
-        <br>
+
     {% endfor %}
 
 
-{% endblock %} 
+    <a href="{% url 'create_cliente' %}" class="btn btn-info"> Novo </a>
+
+{% endblock %}
+
