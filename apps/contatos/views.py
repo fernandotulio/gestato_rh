@@ -5,17 +5,17 @@ from django.views.generic import (
     CreateView
 )
 
-from .models import Endereco
+from .models import Contato
 
 
-class EnderecoEdit(UpdateView):
-    model = Endereco
-    fields = ['tipo_endereco', 'logradouro', 'complemento', 'numero', 'cep', 'bairro', 'cidade', 'observacao']
+class ContatoEdit(UpdateView):
+    model = Contato
+    fields = ['contato', 'tipo_contato',  'observacao']
 
 
-class EnderecoNovo(CreateView):
-        model = Endereco
-        fields = ['tipo_endereco', 'logradouro', 'complemento', 'numero', 'cep', 'bairro', 'cidade', 'observacao']
+class ContatoNovo(CreateView):
+        model = Contato
+        fields = ['contato', 'tipo_contato', 'observacao']
 
         def post(self, request, *args, **kwargs):
             form = self.get_form()
@@ -25,4 +25,3 @@ class EnderecoNovo(CreateView):
                 return self.form_valid(form)
             else:
                 return self.form_invalid(form)
-

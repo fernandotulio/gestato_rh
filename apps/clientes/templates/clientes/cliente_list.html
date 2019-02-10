@@ -2,16 +2,44 @@
 
 {% block main %}
 
-    List
+
+
 <br>
-    {% for cliente in object_list %}
 
-        <a href="{% url 'update_cliente' cliente.id %}">
-            {{ cliente }} <br>
-        </a>
+  <h4>CLIENTES</h4>
 
-    {% endfor %}
 
+     <br>
+
+     <table class="table table-striped">
+
+      <tbody>
+
+      {% for cliente in object_list %}
+        <tr>
+          <th scope="row"></th>
+          <td>
+              <a href="{% url 'update_cliente' cliente.id %}">
+                {{ cliente.nome }} <br>
+              </a>
+          </td>
+            <td>
+
+               {% if  object.cpf != null %}
+                  {{ cliente.cpf }}
+               {% endif %}
+
+            </td>
+
+
+
+
+        </tr>
+         {% endfor %}
+        </tbody>
+       </table>
+
+       <br>
 
     <a href="{% url 'create_cliente' %}" class="btn btn-info"> Novo </a>
 

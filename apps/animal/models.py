@@ -12,8 +12,8 @@ MACHO = 'M'
 FEMEA = 'F'
 
 YEAR_IN_SCHOOL_CHOICES = (
-    (MACHO, 'Macho'),
-    (FEMEA, 'Femea'),
+    (MACHO, 'MACHO'),
+    (FEMEA, 'FEMEA'),
 )
 
 

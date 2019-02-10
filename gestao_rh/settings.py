@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'apps.cidades',
     'apps.enderecos',
     'apps.animal',
+    'apps.contatos',
     'apps.core',
     'bootstrapform',
 

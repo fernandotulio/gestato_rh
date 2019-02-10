@@ -8,28 +8,22 @@
 <br>
 
 <div class="row">
-  <div class="col-sm-8">
+    <div class="col-sm-8">
 
-   <form method="POST">
+     <form method="POST">
         {% csrf_token %}
 
         {{ form|bootstrap }}
 
         <button type="submit" class="btn btn-primary">Salvar</button>
-    </form>
-
-
-    <br>
-
-    <br>
-
-
-  </div>
+     </form>
+     <br>
+     <br>
+   </div>
 
 
 
  <div class="col-sm-4">
-
 
     <div class="card" style="width: 18rem;">
       <div class="card-header">
@@ -55,6 +49,83 @@
   </div>
 
 </div>
+
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">CONTATO</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">ENDEREÇO</a>
+   </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+   <br>
+
+     <table class="table table-striped">
+
+      <tbody>
+
+        {% for contato in object.contato_set.all %}
+        <tr>
+          <th scope="row"></th>
+          <td>{{ contato.tipo_contato }}</td>
+            <td><a href="{% url 'update_contato' contato.id %}"  > {{ contato.contato }} </a></td>
+
+        </tr>
+         {% endfor %}
+        </tbody>
+       </table>
+
+       <br>
+
+         {% if object %}
+        <br>
+        <a href="{% url 'create_contato' object.id %}" class="btn btn-success">
+            Adicionar Contato
+        </a>
+        {% endif %}
+
+
+  </div>
+
+
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+       <br>
+
+     <table class="table table-striped">
+
+      <tbody>
+
+        {% for endereco in object.endereco_set.all %}
+        <tr>
+          <th scope="row"></th>
+          <td>{{ endereco.tipo_endereco }}</td>
+            <td><a href="{% url 'update_endereco' endereco.id %}"  > {{ endereco.logradouro }} , {{ endereco.cidade }} </a></td>
+
+        </tr>
+         {% endfor %}
+        </tbody>
+       </table>
+
+       <br>
+
+         {% if object %}
+        <br>
+        <a href="{% url 'create_endereco' object.id %}" class="btn btn-success">
+            Adicionar Endereço
+        </a>
+        {% endif %}
+
+
+  </div>
+
+
+ </div>
+
+<br>
+
 
 
 

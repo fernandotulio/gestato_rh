@@ -19,13 +19,13 @@ class ClientesList(ListView):
 
 class ClienteEdit(UpdateView):
     model = Cliente
-    fields = ['nome', 'empresa', 'email', 'telefone','celular','comercial','observacao']
+    fields = ['nome', 'empresa', 'is_active', 'cpf', 'rg', 'date_nascimento', 'observacao']
 
 
 
 class ClienteNovo(CreateView):
     model = Cliente
-    fields = ['nome', 'empresa', 'email', 'telefone','celular','comercial','observacao']
+    fields = ['nome', 'empresa', 'is_active', 'cpf', 'rg', 'date_nascimento', 'observacao']
 
     def form_valid(self, form):
         cliente = form.save(commit=False)
