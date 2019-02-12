@@ -6,7 +6,7 @@
 
 <br>
 
-  <h4>CLIENTES</h4>
+  <h4>Consultas</h4>
 
 
      <br>
@@ -15,18 +15,16 @@
 
       <tbody>
 
-      {% for cliente in object_list %}
+      {% for consulta in object_list %}
         <tr>
           <th scope="row"></th>
           <td>
-              <a href="{% url 'update_cliente' cliente.id %}">
-                {{ cliente.nome }} <br>
+              <a href="{% url 'update_consulta' consulta.id  %}">
+                {{ consulta.animal.nome }} <br>
               </a>
           </td>
             <td>
-               {% if  object.cpf != null %}
-                  {{ cliente.cpf }}
-               {% endif %}
+                ss
 
             </td>
 
@@ -37,7 +35,6 @@
 
        <br>
 
-    <a href="{% url 'create_cliente' %}" class="btn btn-info"> Novo </a>
 
 {% endblock %}
 

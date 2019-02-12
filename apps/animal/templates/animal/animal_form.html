@@ -1,25 +1,44 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
+{{ form.errors }}
+
 
 {% block main %}
 <br>
 <div class="alert alert-dark" role="alert">   {{ object.pertence.nome }}  ->  Animais </div>
 <br>
 
+<div class="row">
+  <div class="col-sm-8">
 
-{{ form.errors }}
-
-
-
-<form method="POST">
+  <form method="POST">
     {% csrf_token %}
 
     {{ form|bootstrap }}
 
     <button type="submit" class="btn btn-primary">Salvar</button>
-</form>
+   </form>
 
-<br>
+   <br>
 
+  </div>
+  <div class="col-sm-4">col-sm-4</div>
+</div>
+
+
+
+
+    {% if object %}
+        <br>
+         <a href="{% url 'create_consulta' object.id object.pertence.id %}" class="btn btn-info"> Novo Consulta </a>
+    {% endif %}
+
+
+     {{ object.pertence.id }}
 
 {% endblock %}
+
+
+
+
+

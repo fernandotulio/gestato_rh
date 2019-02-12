@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     'apps.enderecos',
     'apps.animal',
     'apps.contatos',
+    'apps.racas',
+    'apps.vacinas',
+    'apps.consultas',
     'apps.core',
     'bootstrapform',
 

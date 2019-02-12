@@ -17,13 +17,13 @@ class AnimalList(ListView):
 
 class AnimalEdit(UpdateView):
     model = Animal
-    fields = ['nome', 'especie', 'sexo']
+    fields = ['nome', 'raca', 'sexo']
 
 
 
 class AnimalNovo(CreateView):
         model = Animal
-        fields = ['nome', 'especie', 'sexo']
+        fields = ['nome', 'raca', 'sexo']
 
         def post(self, request, *args, **kwargs):
             form = self.get_form()

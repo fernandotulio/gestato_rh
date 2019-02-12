@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<br>
+
+
+
+     <table class="table table-striped">
+
+      <tbody>
+
+      {% for raca in object_list %}
+        <tr>
+          <th scope="row"></th>
+          <td>
+              <a href="{% url 'update_raca' raca.id %}">
+                {{ raca.nome }} <br>
+              </a>
+          </td>
+            <td>
+               {{ raca.especie }}
+            </td>
+
+        </tr>
+         {% endfor %}
+        </tbody>
+       </table>
+
+
+   <br>
+
+    <a href="{% url 'create_raca' %}" class="btn btn-info"> Novo </a>
+
+{% endblock %}

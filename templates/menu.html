@@ -25,28 +25,36 @@
         </div>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'list_funcionarios' %}">Funcionarios</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'list_departamentos' %}">Departamentos</a>
-      </li>
-
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Banco de horas
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Cadastros
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="{% url 'list_hora_extra' %}">Gerenciar banco de horas</a>
-          <a class="dropdown-item" href="{% url 'create_registro_hora_extra' %}">Novo</a>
+          <a class="dropdown-item" href="{% url 'list_racas' %}">Raças</a>
+          <a class="dropdown-item" href="{% url 'create_cliente' %}"></a>
         </div>
       </li>
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Administrativo
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+           <a class="dropdown-item" href="{% url 'list_funcionarios' %}">Funcionarios</a>
+           <a class="dropdown-item" href="{% url 'list_departamentos' %}">Departamentos</a>
+        </div>
+      </li>
+
+
+
 
 
       <li class="nav-item">
          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
       </li>
+
+
     </ul>
 
   </div>
