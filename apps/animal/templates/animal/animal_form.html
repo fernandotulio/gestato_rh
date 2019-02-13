@@ -22,19 +22,29 @@
    <br>
 
   </div>
-  <div class="col-sm-4">col-sm-4</div>
-</div>
+  <div class="col-sm-4">
 
+      <div class="card" style="width: 21rem;">
+      <div class="card-header">
+        Consultas
+      </div>
+      <ul class="list-group list-group-flush">
+        {% for consulta in object.consulta_set.all %}
 
+            <li class="list-group-item" ><a href="{% url 'update_consulta' consulta.id %}"> {{ consulta.data_consulta }} </a> </li>
 
+        {% endfor %}
+      </ul>
+    </div>
 
-    {% if object %}
-        <br>
+   <br>
+   {% if object %}
+
          <a href="{% url 'create_consulta' object.id object.pertence.id %}" class="btn btn-info"> Novo Consulta </a>
     {% endif %}
+  </div>
+</div>
 
-
-     {{ object.pertence.id }}
 
 {% endblock %}
 

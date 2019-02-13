@@ -31,5 +31,5 @@ class Consulta(models.Model):
         return self.animal.nome
 
     def get_absolute_url(self):
-        return reverse('list_consultas')
-
+        #return reverse('list_consultas')
+        return reverse('update_animal', args=[self.animal.id])

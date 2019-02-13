@@ -10,13 +10,16 @@ from .models import Consulta
 
 class ConsultasList(ListView):
     model = Consulta
-
+    def get_queryset(self):
+         return Consulta.objects.order_by('data_consulta asc')
 
 
 
 class ConsultaEdit(UpdateView):
     model = Consulta
     fields = ['cliente', 'animal', 'finalizada', 'sintomas', 'tratamento', 'data_consulta', 'data_retorno', 'peso', 'temperatura', 'observacao']
+
+
 
 
 
