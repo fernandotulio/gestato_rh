@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+
+
+{% block main %}
+
+<br>
+<div class="alert alert-dark" role="alert">  Tipos Serviços </div>
+<br>
+
+<div class="row">
+    <div class="col-sm-8">
+
+     <form method="POST">
+        {% csrf_token %}
+
+        {{ form|bootstrap }}
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+     </form>
+     <br>
+     <br>
+   </div>
+
+
+
+ </div>
+
+<br>
+
+
+
+
+{% endblock %}

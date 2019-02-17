@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.views.generic import (
     ListView,
     UpdateView,
@@ -8,6 +9,7 @@ from django.views.generic import (
 from .models import Cliente
 
 
+#@login_required
 class ClientesList(ListView):
     model = Cliente
 
@@ -30,3 +32,8 @@ class ClienteNovo(CreateView):
     def form_valid(self, form):
         cliente = form.save(commit=False)
         return super(ClienteNovo, self).form_valid(form)
+
+
+
+
+

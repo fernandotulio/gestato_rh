@@ -6,7 +6,7 @@
 {% block main %}
 <br>
 <div class="alert alert-dark" role="alert">   {{ object.pertence.nome }}  ->  Animais </div>
-<br>
+
 
 <div class="row">
   <div class="col-sm-8">
@@ -31,7 +31,8 @@
       <ul class="list-group list-group-flush">
         {% for consulta in object.consulta_set.all %}
 
-            <li class="list-group-item" ><a href="{% url 'update_consulta' consulta.id %}"> {{ consulta.data_consulta }} </a> </li>
+            <li class="list-group-item" ><a href="{% url 'update_consulta' consulta.id %}"> {{ consulta.data_consulta|date:"M d, Y"   }} </a> </li>
+
 
         {% endfor %}
       </ul>
@@ -40,11 +41,117 @@
    <br>
    {% if object %}
 
-         <a href="{% url 'create_consulta' object.id object.pertence.id %}" class="btn btn-info"> Novo Consulta </a>
+         <a href="{% url 'create_consulta' object.id object.pertence.id %}" class="btn btn-info"> Nova Consulta </a>
     {% endif %}
   </div>
 </div>
 
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">VACINAS</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">VERMIFUGO</a>
+   </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+   <br>
+
+     <table class="table table-striped">
+
+      <tbody>
+
+     <tr>
+      <th scope="col"></th>
+      <th scope="col">VACINA</th>
+       <th scope="col">DATA DA VACINA</th>
+        <th scope="col">PROXIMA VACINA</th>
+
+    </tr>
+
+        {% for vacina in object.servico_set.all %}
+
+         {% if vacina.tipo_servico.id == 1 %}
+
+        <tr>
+          <th scope="row"></th>
+          <td> <a href="{% url 'update_servico' vacina.id %}"  > {{ vacina.nome }} </a></td>
+          <td>{{ vacina.data}}</td>
+          <td>{{ vacina.proxima}}</td>
+
+         </tr>
+
+        {% endif %}
+
+       {% endfor %}
+
+        </tbody>
+       </table>
+
+       <br>
+    {% if object %}
+
+      <a href="{% url 'create_servico' object.id %}" class="btn btn-info"> Nova Vacina </a>
+    {% endif %}
+
+
+  </div>
+
+
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+    <br>
+
+     <table class="table table-striped">
+
+      <tbody>
+
+     <tr>
+      <th scope="col"></th>
+      <th scope="col">VERMIFUGAÇÃO</th>
+       <th scope="col">DATA DA VERMIFUGAÇÃO</th>
+        <th scope="col">PROXIMA VERMIFUGAÇÃO</th>
+
+    </tr>
+
+
+        {% for vermifuga in object.servico_set.all %}
+
+         {% if vermifuga.tipo_servico.id == 2 %}
+
+        <tr>
+          <th scope="row"></th>
+          <td> <a href="{% url 'update_servico' vermifuga.id %}"  > {{ vermifuga.nome }} </a></td>
+          <td>{{ vermifuga.data}}</td>
+          <td>{{ vermifuga.proxima}}</td>
+
+         </tr>
+
+        {% endif %}
+
+       {% endfor %}
+
+        </tbody>
+       </table>
+
+       <br>
+    {% if object %}
+
+      <a href="{% url 'create_servico' object.id %}" class="btn btn-info"> Nova Vermifugação </a>
+    {% endif %}
+
+
+  </div>
+
+
+
+
+
+
+ </div>
+
+<br>
 
 {% endblock %}
 

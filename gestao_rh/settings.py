@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'apps.animal',
     'apps.contatos',
     'apps.racas',
-    'apps.vacinas',
+    'apps.servico',
     'apps.consultas',
     'apps.core',
     'bootstrapform',
@@ -146,3 +146,7 @@ LOGOUT_REDIRECT_URL = 'login'
 
 
 from .local_settings import *
+
+
+from django.conf.locale.pt_BR import formats as br_formats
+br_formats.DATE_FORMAT = 'd/m/Y'

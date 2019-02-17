@@ -30,6 +30,7 @@ class Animal(models.Model):
     )
 
     is_active = models.BooleanField('Ativo', default=True)
+    #chip = models.DecimalField(max_digits=100, decimal_places=2, null=True, blank=True)
     date_nascimento = models.DateField(null=True, blank=True)
     idade = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     observacao = models.CharField(max_length=300, null=True, blank=True)

@@ -33,6 +33,7 @@ class ConsultaNovo(CreateView):
         form.instance.cliente_id = self.kwargs['cliente_id']
 
 
+
         if form.is_valid():
             return self.form_valid(form)
         else:

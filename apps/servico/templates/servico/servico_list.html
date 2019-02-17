@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+
+
+<br>
+
+<div class="alert alert-dark" role="alert"> Serviços </div>
+
+
+     <br>
+
+     <table class="table table-striped">
+
+      <tbody>
+
+      {% for servico in object_list %}
+        <tr>
+          <th scope="row"></th>
+          <td>
+              <a href="{% url 'update_servico' servico.id  %}">
+                {{ servico.nome }} <br>
+              </a>
+          </td>
+            <td>
+                ss
+
+            </td>
+
+        </tr>
+         {% endfor %}
+        </tbody>
+       </table>
+
+       <br>
+
+
+{% endblock %}
+

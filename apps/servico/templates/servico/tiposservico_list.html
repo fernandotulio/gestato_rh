@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+
+
+<br>
+
+<br>
+<div class="alert alert-dark" role="alert">  Tipos de Serviços </div>
+
+
+
+     <br>
+
+     <table class="table table-striped">
+
+      <tbody>
+
+      {% for servico in object_list %}
+        <tr>
+          <th scope="row"></th>
+          <td>
+              <a href="{% url 'update_tiposservico' servico.id  %}">
+                {{ servico.nome }} <br>
+              </a>
+
+         {% endfor %}
+        </tbody>
+       </table>
+
+       <br>
+
+
+{% endblock %}
+
