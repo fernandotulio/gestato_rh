@@ -19,9 +19,11 @@ class ClientesList(ListView):
         return Cliente.objects.filter(empresa=empresa_logada).order_by('nome')
 
 
+
 class ClienteEdit(UpdateView):
     model = Cliente
     fields = ['nome', 'empresa', 'is_active', 'cpf', 'rg', 'date_nascimento', 'observacao']
+
 
 
 

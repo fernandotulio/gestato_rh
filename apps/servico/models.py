@@ -22,7 +22,7 @@ class Servico(models.Model):
     tipo_servico = models.ForeignKey(TiposServico, on_delete=models.PROTECT)
     animal = models.ForeignKey(Animal, on_delete=models.PROTECT)
     data  = models.DateField()
-    proxima = models.DateField()
+    proxima = models.DateField(null=True, blank=True)
     is_anual = models.BooleanField('Anual', default=False)
     observacao = models.CharField(max_length=300, null=True, blank=True)
     created = models.DateTimeField('Criado em', auto_now_add=True)
