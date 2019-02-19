@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'apps.consultas',
     'apps.core',
     'bootstrapform',
+    'django_celery_results',
 
 ]
 
@@ -150,3 +151,11 @@ from .local_settings import *
 
 from django.conf.locale.pt_BR import formats as br_formats
 br_formats.DATE_FORMAT = 'd/m/Y'
+
+
+CELERY_RESULT_BACKEND = 'django-db'
+
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
